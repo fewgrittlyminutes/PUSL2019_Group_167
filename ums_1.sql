@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2025 at 02:31 PM
+-- Generation Time: Jan 11, 2026 at 06:10 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `ums`
 --
-CREATE DATABASE IF NOT EXISTS `ums` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `ums`;
 
 DELIMITER $$
 --
@@ -146,6 +144,26 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `full_name` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`, `full_name`) VALUES
+(1, 'admin@utilitypro.com', 'password123', 'System Admin');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `bill`
 --
 
@@ -164,12 +182,12 @@ CREATE TABLE `bill` (
 --
 
 INSERT INTO `bill` (`BillID`, `MeterID`, `BillingMonth`, `Consumption`, `TotalAmount`, `BillDate`, `Status`) VALUES
-(1, 1, '2023-03', 120.00, 900.00, '2023-03-05', 'Paid'),
-(2, 2, '2023-03', 20.00, 100.00, '2023-03-05', 'Unpaid'),
-(3, 3, '2023-04', 80.00, 600.00, '2023-04-05', 'Paid'),
-(4, 4, '2023-04', 50.00, 375.00, '2023-04-06', 'Unpaid'),
-(5, 5, '2023-07', 40.00, 320.00, '2023-07-05', 'Paid'),
-(6, 6, '2023-08', 90.00, 1350.00, '2023-08-04', 'Unpaid');
+(1, 1, '2025-03', 120.00, 900.00, '2025-03-05', 'Paid'),
+(2, 2, '2025-03', 20.00, 100.00, '2025-03-05', 'Unpaid'),
+(3, 3, '2025-04', 80.00, 600.00, '2025-04-05', 'Paid'),
+(4, 4, '2025-04', 50.00, 375.00, '2025-04-06', 'Unpaid'),
+(5, 5, '2025-07', 40.00, 320.00, '2025-07-05', 'Paid'),
+(6, 6, '2025-08', 90.00, 1350.00, '2025-08-04', 'Unpaid');
 
 -- --------------------------------------------------------
 
@@ -192,16 +210,16 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustomerID`, `CustomerType`, `FullName`, `Address`, `Email`, `Phone`, `RegistrationDate`) VALUES
-(1, 'Household', 'John Silva', 'No.12 Main St', 'john@example.com', '0711234567', '2023-01-10'),
-(2, 'Business', 'Royal Bakery', '23 Market Road', 'rbakery@example.com', '0772345678', '2023-02-11'),
-(3, 'Household', 'Nimal Perera', '45 Green Lane', 'nimal@example.com', '0753456789', '2023-03-15'),
-(4, 'Government', 'City Council', '1 Govt Ave', 'council@example.com', '0115678901', '2023-04-01'),
-(5, 'Household', 'Amy Fernando', '88 Lake Rd', 'amy@example.com', '0719876543', '2023-05-20'),
-(6, 'Business', 'TechNova Pvt Ltd', 'IT Park 5', 'info@technova.com', '0721112223', '2023-06-18'),
-(7, 'Household', 'Kamal Jayasuriya', '19 Temple Rd', 'kamal@example.com', '0711114444', '2023-07-12'),
-(8, 'Government', 'Health Dept', '2 Public Rd', 'health@example.com', '0113344556', '2023-08-05'),
-(9, 'Business', 'FreshMart', '78 Supermarket St', 'freshmart@example.com', '0775556666', '2023-09-15'),
-(10, 'Household', 'Sajith Wijesinghe', '120 Flower St', 'sajith@example.com', '0769876543', '2023-10-20');
+(1, 'Household', 'John Silva', 'No.12 Main St', 'john@example.com', '0711234567', '2025-01-10'),
+(2, 'Business', 'Royal Bakery', '23 Market Road', 'rbakery@example.com', '0772345678', '2025-02-11'),
+(3, 'Household', 'Nimal Perera', '45 Green Lane', 'nimal@example.com', '0753456789', '2025-03-15'),
+(4, 'Government', 'City Council', '1 Govt Ave', 'council@example.com', '0115678901', '2025-04-01'),
+(5, 'Household', 'Amy Fernando', '88 Lake Rd', 'amy@example.com', '0719876543', '2025-05-20'),
+(6, 'Business', 'TechNova Pvt Ltd', 'IT Park 5', 'info@technova.com', '0721112223', '2025-06-18'),
+(7, 'Household', 'Kamal Jayasuriya', '19 Temple Rd', 'kamal@example.com', '0711114444', '2025-07-12'),
+(8, 'Government', 'Health Dept', '2 Public Rd', 'health@example.com', '0113344556', '2025-08-05'),
+(9, 'Business', 'FreshMart', '78 Supermarket St', 'freshmart@example.com', '0775556666', '2025-09-15'),
+(10, 'Household', 'Sajith Wijesinghe', '120 Flower St', 'sajith@example.com', '0769876543', '2025-10-20');
 
 -- --------------------------------------------------------
 
@@ -222,16 +240,16 @@ CREATE TABLE `meter` (
 --
 
 INSERT INTO `meter` (`MeterID`, `CustomerID`, `UtilityTypeID`, `MeterSerial`, `InstallationDate`) VALUES
-(1, 1, 1, 'ELEC-A001', '2023-01-15'),
-(2, 1, 2, 'WAT-A001', '2023-01-20'),
-(3, 2, 1, 'ELEC-B001', '2023-02-15'),
-(4, 3, 1, 'ELEC-C001', '2023-03-20'),
-(5, 4, 2, 'WAT-D001', '2023-04-10'),
-(6, 5, 3, 'GAS-E001', '2023-05-25'),
-(7, 6, 1, 'ELEC-F001', '2023-06-30'),
-(8, 7, 2, 'WAT-G001', '2023-07-12'),
-(9, 8, 3, 'GAS-H001', '2023-08-18'),
-(10, 9, 1, 'ELEC-I001', '2023-09-22');
+(1, 1, 1, 'ELEC-A001', '2025-01-15'),
+(2, 1, 2, 'WAT-A001', '2025-01-20'),
+(3, 2, 1, 'ELEC-B001', '2025-02-15'),
+(4, 3, 1, 'ELEC-C001', '2025-03-20'),
+(5, 4, 2, 'WAT-D001', '2025-04-10'),
+(6, 5, 3, 'GAS-E001', '2025-05-25'),
+(7, 6, 1, 'ELEC-F001', '2025-06-30'),
+(8, 7, 2, 'WAT-G001', '2025-07-12'),
+(9, 8, 3, 'GAS-H001', '2025-08-18'),
+(10, 9, 1, 'ELEC-I001', '2025-09-22');
 
 -- --------------------------------------------------------
 
@@ -251,16 +269,16 @@ CREATE TABLE `meterreading` (
 --
 
 INSERT INTO `meterreading` (`ReadingID`, `MeterID`, `ReadingDate`, `CurrentReading`) VALUES
-(1, 1, '2023-02-01', 120.00),
-(2, 1, '2023-03-01', 240.00),
-(3, 2, '2023-02-01', 20.00),
-(4, 3, '2023-03-01', 300.00),
-(5, 4, '2023-04-01', 150.00),
-(6, 5, '2023-06-01', 40.00),
-(7, 6, '2023-07-01', 180.00),
-(8, 7, '2023-08-01', 30.00),
-(9, 8, '2023-09-01', 70.00),
-(10, 9, '2023-10-01', 500.00);
+(1, 1, '2025-02-01', 120.00),
+(2, 1, '2025-03-01', 240.00),
+(3, 2, '2025-02-01', 20.00),
+(4, 3, '2025-03-01', 300.00),
+(5, 4, '2025-04-01', 150.00),
+(6, 5, '2025-06-01', 40.00),
+(7, 6, '2025-07-01', 180.00),
+(8, 7, '2025-08-01', 30.00),
+(9, 8, '2025-09-01', 70.00),
+(10, 9, '2025-10-01', 500.00);
 
 --
 -- Triggers `meterreading`
@@ -312,9 +330,9 @@ CREATE TABLE `payment` (
 --
 
 INSERT INTO `payment` (`PaymentID`, `BillID`, `PaymentDate`, `AmountPaid`, `Method`) VALUES
-(1, 1, '2023-03-10', 900.00, 'Cash'),
-(2, 3, '2023-04-10', 600.00, 'Online'),
-(3, 5, '2023-07-10', 320.00, 'Card');
+(1, 1, '2025-03-10', 900.00, 'Cash'),
+(2, 3, '2025-04-10', 600.00, 'Online'),
+(3, 5, '2025-07-10', 320.00, 'Card');
 
 --
 -- Triggers `payment`
@@ -348,13 +366,13 @@ CREATE TABLE `tariffplan` (
 --
 
 INSERT INTO `tariffplan` (`TariffID`, `UtilityTypeID`, `SlabStart`, `SlabEnd`, `RatePerUnit`, `EffectiveDate`) VALUES
-(1, 1, 0.00, 60.00, 7.50, '2023-01-01'),
-(2, 1, 61.00, 120.00, 10.00, '2023-01-01'),
-(3, 1, 121.00, 99999.00, 20.00, '2023-01-01'),
-(4, 2, 0.00, 30.00, 5.00, '2023-01-01'),
-(5, 2, 31.00, 99999.00, 15.00, '2023-01-01'),
-(6, 3, 0.00, 50.00, 8.00, '2023-01-01'),
-(7, 3, 51.00, 99999.00, 12.00, '2023-01-01');
+(1, 1, 0.00, 60.00, 7.50, '2025-01-01'),
+(2, 1, 61.00, 120.00, 10.00, '2025-01-01'),
+(3, 1, 121.00, 99999.00, 20.00, '2025-01-01'),
+(4, 2, 0.00, 30.00, 5.00, '2025-01-01'),
+(5, 2, 31.00, 99999.00, 15.00, '2025-01-01'),
+(6, 3, 0.00, 50.00, 8.00, '2025-01-01'),
+(7, 3, 51.00, 99999.00, 12.00, '2025-01-01');
 
 -- --------------------------------------------------------
 
@@ -415,6 +433,13 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- Indexes for table `bill`
 --
 ALTER TABLE `bill`
@@ -467,6 +492,12 @@ ALTER TABLE `utilitytype`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `bill`
