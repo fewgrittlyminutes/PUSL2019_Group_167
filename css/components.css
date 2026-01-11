@@ -1,0 +1,229 @@
+/* css/components.css */
+
+/* ===== REUSABLE COMPONENTS ===== */
+
+/* BUTTONS */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-blue);
+    color: white;
+}
+
+.btn-lg {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.875rem;
+}
+
+/* CARDS */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 20px;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-footer {
+    background-color: transparent;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 15px 25px;
+}
+
+/* FORMS */
+.form-control {
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    padding: 12px 15px;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.form-floating > .form-control {
+    padding: 20px 15px;
+}
+
+.form-floating > label {
+    padding: 20px 15px;
+}
+
+.form-select {
+    border-radius: 10px;
+    border: 2px solid #e2e8f0;
+    padding: 12px 15px;
+}
+
+.form-select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+/* TABLES */
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    border-bottom: 2px solid #e2e8f0;
+    background-color: var(--light-blue);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.5px;
+    padding: 15px;
+}
+
+.table tbody td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+/* BADGES */
+.badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+/* ALERTS */
+.alert {
+    border: none;
+    border-radius: 10px;
+    padding: 15px 20px;
+}
+
+.alert-success {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: var(--success);
+    border-left: 4px solid var(--success);
+}
+
+.alert-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--warning);
+    border-left: 4px solid var(--warning);
+}
+
+.alert-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border-left: 4px solid var(--danger);
+}
+
+.alert-info {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--info);
+    border-left: 4px solid var(--info);
+}
+
+/* MODALS */
+.modal-content {
+    border-radius: 20px;
+    border: none;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 25px 30px;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 20px 30px;
+}
+
+/* LOADERS */
+.spinner-border {
+    border-width: 2px;
+}
+
+/* AVATARS */
+.avatar-xs { width: 24px; height: 24px; }
+.avatar-sm { width: 32px; height: 32px; }
+
+/* TOOLTIPS */
+.tooltip {
+    font-size: 0.875rem;
+}
+
+.tooltip-inner {
+    background-color: var(--primary-dark);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+/* DROPDOWNS */
+.dropdown-menu {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.dropdown-item {
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 2px 0;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+    color: var(--primary-blue);
+}
